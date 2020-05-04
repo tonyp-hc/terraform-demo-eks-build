@@ -1,12 +1,14 @@
 module "eks" {
-  source       = "terraform-aws-modules/eks/aws"
+  source       = "app.terraform.io/TonyPulickal/eks/aws"
   cluster_name = local.cluster_name
   subnets      = module.vpc.private_subnets
 
   tags = {
-    Environment = "training"
-    GithubRepo  = "terraform-aws-eks"
-    GithubOrg   = "terraform-aws-modules"
+    Environment = "demo"
+    GithubRepo  = "tonyp-hc/terraform-aws-eks"
+    GithubOrg   = "tonyp-hc"
+    Owner       = "ttp"
+    TTL         = "-1"
   }
 
   vpc_id = module.vpc.vpc_id
